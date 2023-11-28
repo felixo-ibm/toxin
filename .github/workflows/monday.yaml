@@ -1,0 +1,40 @@
+name: Create Monday.com Board
+#env:
+ # MONDAY_TOKEN: ${{ secrets.MONDAY_API_KEY }}
+
+on: push
+   # branches: [ main ]
+
+jobs:
+  create board:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2 
+
+    - name: Create Board
+      run: |
+        # Create a new board
+        curl --location 'https://api.monday.com/v2/' \
+          --header "Content-Type: application/json" \
+          --header "Authorization: ${{env.MONDAY_TOKEN}}" \
+          --data '{"query": mutation {create_board (board_name: "new_board", board_kind: public){ id }}
+
+        #echo "Created board with ID: $board_id"
+
+   # - name: Create Monday.com Card
+    #  run: |
+     #   MONDAY_API_KEY=${{env.MONDAY_TOKEN}}
+      #  BOARD_ID=<REPLACE_WITH_BOARD_ID>
+       # ITEM_NAME="New Card"
+
+        # Create a new card
+        #curl --request POST \
+         # --url 'https://api.monday.com/v2/items' \
+          #--header "Content-Type: application/json" \
+         # --header "Authorization: ${{env.MONDAY_TOKEN}}" \
+         # --data-raw '{
+           # "board_id": '"$BOARD_ID"',
+          #  "name": "'"$ITEM_NAME"'"
+         # }'
