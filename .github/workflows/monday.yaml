@@ -1,6 +1,6 @@
 name: Create Monday.com Board
-#env:
- #MONDAY_API_KEY: ${{ secrets.MONDAY_TOKEN }}
+env:
+ MONDAY_API_KEY: ${{ secrets.MONDAY_TOKEN }}
 
 on: push
    # branches: [ main ]
@@ -16,8 +16,8 @@ jobs:
     - uses: actions/checkout@v2 
 
     - name: Create Board
-      env:
-      MONDAY_API_KEY: ${{ secrets.MONDAY_TOKEN }}
+     # env:
+     # MONDAY_API_KEY: ${{ secrets.MONDAY_TOKEN }}
       run: |
         # Create a new board
        
