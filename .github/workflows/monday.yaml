@@ -7,7 +7,7 @@ on: push
 
 jobs:
   create board:
-
+    name: Create monday.com board
     runs-on: ubuntu-latest
 
     steps:
