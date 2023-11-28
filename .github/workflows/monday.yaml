@@ -26,7 +26,7 @@ jobs:
           --header "Authorization: ${{ env.MONDAY_API_KEY }}" \
           --data '{"query": mutation {create_board (board_name: "new_board2", board_kind: public){ id }}
 
-        echo "Created board with ID: $board_id"
+        echo "Created board with ID: "
 
    # - name: Create Monday.com Card
     #  run: |
