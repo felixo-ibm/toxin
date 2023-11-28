@@ -21,11 +21,10 @@ jobs:
       run: |
         # Create a new board
        
-        curl -X POST \
+        curl -X POST 'https://api.monday.com/v2/' \
           --header "Content-Type: application/json" \
           --header "Authorization: ${{ env.MONDAY_API_KEY }}" \
-          --data '{"query": mutation {create_board (board_name: "new_board2", board_kind: public){ id }}' \
-          'https://api.monday.com/v2/'
+          --data '{"query": mutation {create_board (board_name: "new_board2", board_kind: public){ id }}'
 
         echo "Created board with ID: "
 
