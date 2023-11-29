@@ -14,7 +14,7 @@ jobs:
       MONDAY_API_KEY: ${{ secrets.MONDAY_TOKEN }}
    
     steps:
-    - uses: actions/checkout@v2 
+    - uses: actions/checkout@v4 
 
     - name: Create Board
      # env:
@@ -24,7 +24,7 @@ jobs:
        
         curl -X POST --url 'https://api.monday.com/v2' \
           --header 'Content-Type: application/json' \
-          --header 'Authorization: $MONDAY_API_KEY' \
+          --header 'Authorization: ${env.MONDAY_API_KEY}' \
           --data '{"query": "mutation {create_board (board_name: "new_board2", board_kind: public){ id }}"}'
 
         echo "Created board with ID: "
