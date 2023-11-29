@@ -23,7 +23,7 @@ jobs:
        
         curl --location 'https://api.monday.com/v2/' \
           --header 'Content-Type: application/json' \
-          --header 'Authorization: Bearer ${{env.MONDAY_API_KEY}}' \
+          --header 'apikey: ${{env.MONDAY_API_KEY}}' \
           --data '{"query": mutation {create_board (board_name: "new_board2", board_kind: public){ id }}}'
 
         echo "Created board with ID: "
