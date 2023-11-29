@@ -21,6 +21,7 @@ jobs:
      # MONDAY_API_KEY: ${{ secrets.MONDAY_TOKEN }}
       run:|
         # Create a new board
+
          curl --location 'https://api.monday.com/v2' \
              --header 'Content-Type: application/json' \
              --header 'Authorization: ${env.MONDAY_API_KEY}' \
