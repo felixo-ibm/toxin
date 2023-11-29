@@ -22,9 +22,9 @@ jobs:
         # Create a new board
        
         curl --location 'https://api.monday.com/v2/' \
-          --header "Content-Type: application/json" \
-          --header "Authorization: eyJhbGciOiJIUzI1NiJ9.eyJ0aWQiOjI5Njk4MDkwOCwiYWFpIjoxMSwidWlkIjo1MjAzNTU2OCwiaWFkIjoiMjAyMy0xMS0xN1QxNDozNjo0OS4wMDBaIiwicGVyIjoibWU6d3JpdGUiLCJhY3RpZCI6MTk4ODI5NjgsInJnbiI6InVzZTEifQ.JMKQNyagBsSSd7srmk2Tdi9AHl567Z_MFo1R9WUmdp4" \
-          --data '{"query": mutation {create_board (board_name: "new_board2", board_kind: public){ id }}'
+          --header 'Content-Type: application/json' \
+          --header 'Authorization: ${{ env.MONDAY_API_KEY }}' \
+          --data '{"query": mutation {create_board (board_name: "new_board2", board_kind: public){ id }}}'
 
         echo "Created board with ID: "
 
