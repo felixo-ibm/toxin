@@ -27,17 +27,14 @@ jobs:
          # --header 'Authorization: ${env.MONDAY_API_KEY}' \
          # --data '{"query": "mutation {create_board (board_name: "new_board2", board_kind: public){ id }}"}'
 
-        POST /v2 HTTP/1.1
-        Host: api.monday.com
-        Content-Type: application/json
-        Authorization: ${env.MONDAY_API_KEY}
+        POST /v2 HTTP/1.1 \
+        Host: api.monday.com \  
+        Content-Type: application/json \
+        Authorization: ${env.MONDAY_API_KEY} \
         {"query": "mutation {create_board (board_name: "new_board2", board_kind: public){ id }}"}
         
 
 	echo "Created board with ID: "
-
-   # - name: Create Monday.com Card
-    #  run: |
      #   MONDAY_API_KEY=${{env.MONDAY_TOKEN}}
       #  BOARD_ID=<REPLACE_WITH_BOARD_ID>
        # ITEM_NAME="New Card"
