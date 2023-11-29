@@ -1,6 +1,6 @@
 name: Create Monday.com Board
-#env:
- #MONDAY_API_KEY: ${{secrets.MONDAY_TOKEN}}
+env:
+ MONDAY_API_KEY: ${{secrets.MONDAY_TOKEN}}
 
 on: push
    # branches: [ main ]
@@ -10,8 +10,8 @@ jobs:
     name: monday_board
     runs-on: ubuntu-latest
    
-    env:
-      MONDAY_API_KEY: ${{ secrets.MONDAY_TOKEN }}
+    #env:
+     # MONDAY_API_KEY: ${{ secrets.MONDAY_TOKEN }}
    
     steps:
     - uses: actions/checkout@v4 
@@ -22,9 +22,10 @@ jobs:
       run: |
         # Create a new board
        
-        curl -X POST --url 'https://api.monday.com/v2' \
+        curl --location 'https://api.monday.com/v2' \
           --header 'Content-Type: application/json' \
           --header 'Authorization: ${env.MONDAY_API_KEY}' \
+          --header 'Cookie: __cf_bm=uM2ERpcyYIClPgzmWPKK2DdP4oBwjJgsYgkpX6IY.Hs-1701207600-0-AXwJ5Ffnjffo6msgbpv+M6e9ugY9d/tB7Mczhx79tuv7jN6SqR4Gh3qROMiucc1/GawO/JeegczMkVKHxRQFKQPEZJBPUrH5ldNAg7K92hWC' \
           --data '{"query": "mutation {create_board (board_name: "new_board2", board_kind: public){ id }}"}'
 
         echo "Created board with ID: "
